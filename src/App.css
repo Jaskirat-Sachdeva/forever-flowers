@@ -119,10 +119,13 @@ main {
   min-height: 100svh;
   display: grid;
   place-items: center;
-  padding: 48px 18px;
+  padding: 48px 18px 105px;
+  overflow: hidden;
 }
 
 .hero-card {
+  position: relative;
+  z-index: 4;
   width: min(820px, 100%);
   padding: clamp(30px, 6vw, 72px);
   border: 1px solid rgba(255, 214, 234, 0.2);
@@ -213,17 +216,18 @@ h2 {
 
 .hero-bunny-left {
   left: clamp(14px, 5vw, 70px);
-  bottom: 36px;
+  bottom: 18px;
+  z-index: 5;
 }
 
 .hero-bunny-right {
   right: clamp(14px, 5vw, 70px);
-  bottom: 54px;
+  bottom: 18px;
   transform: scaleX(-1);
   animation-delay: 0.7s;
+  z-index: 5;
 }
 
-/* Hopping bunny wrapper version */
 .garden-bunny-track {
   position: absolute;
   left: -145px;
@@ -251,7 +255,6 @@ h2 {
   animation: bunnyTravelAcross 8.5s linear 1.8s infinite;
 }
 
-/* Fallback: works even if you put <Bunny className="garden-hopping-bunny" /> directly in flower-bed */
 .flower-bed > .garden-hopping-bunny {
   left: -145px;
   bottom: 82px;
@@ -810,6 +813,7 @@ h2 {
     opacity: 0.25;
     transform: scale(0.8);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.5);
@@ -820,6 +824,7 @@ h2 {
   0% {
     transform: translateY(-12vh) translateX(0) rotate(0deg);
   }
+
   100% {
     transform: translateY(116vh) translateX(60px) rotate(260deg);
   }
@@ -830,6 +835,7 @@ h2 {
   100% {
     translate: 0 0;
   }
+
   50% {
     translate: 0 -10px;
   }
@@ -918,6 +924,7 @@ h2 {
     opacity: 0;
     transform: translateY(10px) scale(0.6);
   }
+
   45% {
     opacity: 1;
     transform: translateY(-18px) scale(1);
@@ -929,6 +936,7 @@ h2 {
     opacity: 0;
     transform: translateX(-50%) scale(var(--flower-scale)) translateY(34px);
   }
+
   to {
     opacity: 1;
     transform: translateX(-50%) scale(var(--flower-scale)) translateY(0);
@@ -940,6 +948,7 @@ h2 {
   100% {
     rotate: -1.5deg;
   }
+
   50% {
     rotate: 1.5deg;
   }
@@ -950,6 +959,7 @@ h2 {
   100% {
     transform: translateY(0) rotate(0deg);
   }
+
   50% {
     transform: translateY(-5px) rotate(-5deg);
   }
@@ -957,10 +967,13 @@ h2 {
 
 @media (max-width: 720px) {
   .hero-section {
-    padding: 32px 14px;
+    padding: 32px 14px 105px;
+    overflow: hidden;
   }
 
   .hero-card {
+    position: relative;
+    z-index: 4;
     border-radius: 30px;
     padding: 34px 22px;
   }
@@ -991,16 +1004,22 @@ h2 {
 
   .hero-bunny-left {
     left: 8px;
-    bottom: 18px;
-    scale: 0.68;
-    opacity: 0.72;
+    right: auto;
+    top: auto;
+    bottom: 10px;
+    scale: 0.58;
+    opacity: 0.9;
+    z-index: 5;
   }
 
   .hero-bunny-right {
-    right: 6px;
-    bottom: 22px;
-    scale: 0.68;
-    opacity: 0.72;
+    right: 8px;
+    left: auto;
+    top: auto;
+    bottom: 10px;
+    scale: 0.58;
+    opacity: 0.9;
+    z-index: 5;
   }
 
   .garden-section,
@@ -1086,6 +1105,7 @@ h2 {
 @media (max-width: 420px) {
   .hero-section {
     padding-inline: 12px;
+    padding-bottom: 92px;
   }
 
   .hero-card {
@@ -1095,18 +1115,22 @@ h2 {
 
   .hero-bunny-left,
   .hero-bunny-right {
-    scale: 0.55;
-    opacity: 0.5;
+    scale: 0.5;
+    opacity: 0.84;
   }
 
   .hero-bunny-left {
-    left: -8px;
-    bottom: 8px;
+    left: 0;
+    right: auto;
+    top: auto;
+    bottom: 4px;
   }
 
   .hero-bunny-right {
-    right: -10px;
-    bottom: 10px;
+    right: 0;
+    left: auto;
+    top: auto;
+    bottom: 4px;
   }
 
   .garden-section,
